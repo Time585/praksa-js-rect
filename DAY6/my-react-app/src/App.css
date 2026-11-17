@@ -1,0 +1,98 @@
+footer.bg-dark {
+    background-color: aqua !important;
+    font-family: sans-serif;
+    color: azure;
+}
+.navbar {
+    background-color: aqua !important;
+    font-family: sans-serif;
+    color: azure;
+}
+.navbar-brand {
+    padding: 1%;
+}
+.navbar a:hover {
+    color: navy;
+}
+.nav-item .nav-link:hover {
+    color: navy;
+}
+body {
+    background-color: antiquewhite;
+}
+
+.carousel-item img {
+    height: 600px;
+    padding-top: 0%;      
+    object-fit: cover;    
+}
+.carousel-item p {
+  color: black;
+  font-family: sans-serif;
+  background-color: antiquewhite;
+}
+
+.carousel-item h5 {
+  color: black;
+  font-family: sans-serif;
+  background-color: antiquewhite;
+}
+
+#about h2 {
+    color: black;
+    font-family: sans-serif;
+}
+
+#about p {
+    color: black;
+    font-family: sans-serif;
+}
+
+#about .btn-primary {
+    background-color: aqua;
+    border-color: aqua;
+    color: black;
+    font-family: sans-serif;
+}
+
+#about .btn-primary:hover {
+    background-color: navy;
+    border-color: navy;
+    color: white;
+    font-family: sans-serif;
+}
+
+#about .col-md-6 {
+    background-color: transparent !important;
+}
+
+.card-img-top {
+    height: 200px;        
+    object-fit: cover;    
+}
+.card-text {
+    color: black;
+    font-family: sans-serif;
+}
+.card .card-title {
+    color: gray;
+    font-family: sans-serif;
+}
+.card .btn-primary {
+    background-color: aqua;
+    border-color: aqua;
+    color: black;
+}
+.product-price {
+    padding-left: 10%;
+    margin-right: 5%;
+}
+
+.carousel-indicators [data-bs-target] {
+    background-color: black; 
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(80%);
+    background-color: white;
+}
