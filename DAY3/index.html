@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAN3</title>
+    <style>
+    .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="loading" class="loading">Učitavanje podataka...</div>
+<div id="cards-container" class="container"></div>    
+
+<script>
+const container = document.getElementById('cards-container')
+const loading = document.getElementById('loading')
+
+async function  dohvatiKorisnike() {
+    try{
+        const odgovor = await fetch('https://jsonplaceholder.typicode.com/users');
+        if (!odgovor.ok){
+            throw new Error("Mrezna greska: " + odgovor.status);
+        }
+        const korisnici = await odgovor.json();
+        loading.style.display = 'none';
+
+        korisnici.forEach(korisnik => {
+            const card = document.createElement('div');
+            card.classList.add('card');
+            
+
+            card.innerHTML = `
+                
+                <h3>${korisnik.name}</h3>
+                <p><strong>Korisničko ime:</strong> @${korisnik.username}</p>
+                <p><strong>Email:</strong> ${korisnik.email}</p>
+                <p><strong>Grad:</strong> ${korisnik.address.city}</p>
+                <p><strong>Tvrtka:</strong> ${korisnik.company.name}</p>
+            `;
+
+            container.appendChild(card);
+        });
+
+    }
+    catch(greska){
+        loading.textContent = 'Došlo je do greške prilikom dohvaćanja podataka.';
+        loading.style.color = 'red';
+        console.error('Detalji greške:', greska);
+    }
+}
+dohvatiKorisnike();
+</script>
+</body>
+</html>

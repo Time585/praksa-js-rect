@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1DAN</title>
+</head>
+<body>
+<p id="demo"></p>
+
+
+<script>
+let tekst = "";
+const kompanije = [
+  { naziv: "TechCorp", industrija: "IT", godina: 2015, brojRadnika: 45 },
+  { naziv: "BioHealth", industrija: "Zdravstvo", godina: 2018, brojRadnika: 120 },
+  { naziv: "AutoDrive", industrija: "Automoto", godina: 2010, brojRadnika: 300 },
+  { naziv: "GreenEnergy", industrija: "Energija", godina: 2020, brojRadnika: 15 }
+];
+
+kompanije.forEach(funk1)
+
+const velikaKompanija = kompanije.find(item => item.brojRadnika > 100);
+const novijeFirme = kompanije.filter(item => item.godina > 2010);
+const budget = kompanije.map(item => ({
+    naziv: item.naziv,
+    noviBrojRadnika: Math.max(0, item.brojRadnika - 25) 
+}));
+
+if (budget.length > 0) {
+    tekst += `<br><strong>Potencijalna AI zamjena radnika:</strong><br>`;
+
+    budget.forEach(firma => {
+        tekst += `- ${firma.naziv} (Novi broj radnika: ${firma.noviBrojRadnika})<br>`;
+    });
+}
+
+if (novijeFirme.length > 0) {
+    tekst += `<br><strong>Firme osnovane poslije 2010. godine:</strong><br>`;
+    
+    novijeFirme.forEach(firma => {
+        tekst += `- ${firma.naziv} (Osnovana: ${firma.godina})<br>`;
+    });
+}
+
+if (velikaKompanija) {
+    tekst += `<br><strong>Pronađena firma sa više od 100 radnika:</strong> ${velikaKompanija.naziv}<br>`;
+}
+
+
+document.getElementById("demo").innerHTML = tekst;
+
+
+function funk1(item){
+tekst += `Naziv firme: ${item.naziv} (${item.industrija}) Godina osnivanja: ${item.godina} Broj radnika: ${item.brojRadnika}<br>`;
+}
+
+</script>
+</body>
+</html>

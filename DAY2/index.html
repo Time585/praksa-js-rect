@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2DAN</title>
+</head>
+<body>
+<h1 id="naslov">Moja Lista</h1>
+<button id="dugmePromeni">Promeni naslov</button>
+
+<br><br>
+
+<input type="text" id="unosTeksta" placeholder="Unesi stavku...">
+<button id="dugmeDodaj">Dodaj stavku</button>
+
+<ul id="mojaLista">
+    
+    
+</ul>
+
+
+<script>
+const naslov = document.querySelector('#naslov');
+const dugme1 = document.querySelector('#dugmePromeni');
+
+dugme1.addEventListener('click', () => {
+    naslov.textContent = "Naslov je promjenjen!";
+});
+
+const lista = document.querySelector('#mojaLista');
+const dugme2 = document.querySelector('#dugmeDodaj');
+const unos = document.querySelector('#unosTeksta');
+
+dugme2.addEventListener('click', () => {
+    const tekst = unos.value;
+    if (tekst === '') return;
+
+    const noviLi = document.createElement('li');
+    noviLi.textContent = tekst + ' ';
+
+    const dugme3 = document.createElement('button');
+    dugme3.textContent = 'Obriši';
+
+    dugme3.addEventListener('click', () => {
+        noviLi.remove();
+    });
+
+    noviLi.appendChild(dugme3);
+    lista.appendChild(noviLi);
+    unos.value = '';
+});
+</script>
+</body>
+</html>
